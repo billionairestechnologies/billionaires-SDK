@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proalgotrade-bridge"
+version = "1.0.0"
+description = "Python SDK for sending strategy signals to the ProAlgoTrade Bridge API"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+  { name = "Billionaires Technologies" }
+]
+license = { text = "Proprietary" }
+keywords = ["proalgotrade", "bridge api", "trading", "tradingview", "algo trading"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Operating System :: OS Independent"
+]
+
+[tool.setuptools.packages.find]
+include = ["proalgotrade*"]

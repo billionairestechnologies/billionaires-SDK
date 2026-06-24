@@ -1,0 +1,26 @@
+import os
+
+from proalgotrade import BridgeAPIError, BridgeClient, BridgeConfigError
+
+
+bridge = BridgeClient(
+    base_url=os.environ["PROALGOTRADE_BASE_URL"],
+    api_key=os.environ["PROALGOTRADE_API_KEY"],
+)
+
+try:
+    bridge.ensure_ready(require_paper=True)
+    result = bridge.buy(
+        symbol="NIFTY24JUN23500CE",
+        exchange="NFO",
+        quantity=50,
+        product="MIS",
+        pricetype="MARKET",
+        group="Scalping",
+    )
+    print(result.success, result.success_count, result.failed_count)
+    result.raise_for_failures()
+except BridgeConfigError as exc:
+    print(f"Config error: {exc}")
+except BridgeAPIError as exc:
+    print(f"API error: {exc}")
