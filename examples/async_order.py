@@ -1,6 +1,6 @@
 import asyncio
 
-from proalgotrade import BridgeClient
+from billionaires_sdk import BridgeClient
 
 
 async def main() -> None:

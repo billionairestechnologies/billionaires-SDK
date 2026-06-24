@@ -1,6 +1,6 @@
 import unittest
 
-from proalgotrade import BridgeClient, BridgeConfigError, BridgeResponse, BridgeStatus
+from billionaires_sdk import BridgeClient, BridgeConfigError, BridgeResponse, BridgeStatus
 
 
 class BridgeClientTest(unittest.TestCase):

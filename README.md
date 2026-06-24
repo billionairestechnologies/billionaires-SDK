@@ -1,6 +1,6 @@
-# Billionaires / ProAlgoTrade Bridge Python SDK
+# Billionaires SDK
 
-Use this SDK to send BUY/SELL signals from a Python strategy to the ProAlgoTrade Bridge API.
+Use this SDK to send BUY/SELL signals from a Python strategy to Billionaires Terminal. AlgoAdmin white-label deployments also support this SDK.
 
 The SDK wraps:
 
@@ -30,20 +30,20 @@ pip install -e .
 After package publishing:
 
 ```bash
-pip install proalgotrade-bridge
+pip install billionaires-sdk
 ```
 
 ## Environment
 
 ```text
-PROALGOTRADE_BASE_URL=https://your-domain.com
-PROALGOTRADE_API_KEY=bt_live_your_key
+BILLIONAIRES_BASE_URL=https://your-domain.com
+BILLIONAIRES_API_KEY=bt_live_your_key
 ```
 
 ## Quick Start
 
 ```python
-from proalgotrade import BridgeClient
+from billionaires_sdk import BridgeClient
 
 bridge = BridgeClient.from_env()
 
@@ -193,7 +193,7 @@ for response in responses:
 
 ```python
 import asyncio
-from proalgotrade import BridgeClient
+from billionaires_sdk import BridgeClient
 
 
 async def main():
@@ -214,7 +214,7 @@ asyncio.run(main())
 ## Error Handling
 
 ```python
-from proalgotrade import BridgeAPIError, BridgeConfigError
+from billionaires_sdk import BridgeAPIError, BridgeConfigError
 
 try:
     bridge.buy(symbol="RELIANCE", exchange="NSE", quantity=1)

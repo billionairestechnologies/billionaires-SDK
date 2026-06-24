@@ -3,16 +3,16 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "proalgotrade-bridge"
+name = "billionaires-sdk"
 version = "1.0.0"
-description = "Python SDK for sending strategy signals to the ProAlgoTrade Bridge API"
+description = "Billionaires SDK for sending strategy signals to Billionaires Terminal and supported white-label platforms"
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [
   { name = "Billionaires Technologies" }
 ]
 license = { text = "Proprietary" }
-keywords = ["proalgotrade", "bridge api", "trading", "tradingview", "algo trading"]
+keywords = ["billionaires", "bridge api", "trading", "tradingview", "algo trading", "algoadmin"]
 classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
@@ -21,4 +21,4 @@ classifiers = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["proalgotrade*"]
+include = ["billionaires_sdk*"]

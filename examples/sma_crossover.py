@@ -1,6 +1,6 @@
 import os
 
-from proalgotrade import BridgeClient
+from billionaires_sdk import BridgeClient
 
 
 def on_signal(symbol: str, side: str) -> None:
@@ -13,7 +13,7 @@ def on_signal(symbol: str, side: str) -> None:
         quantity=50,
         product="MIS",
         pricetype="MARKET",
-        group=os.environ.get("PROALGOTRADE_GROUP", "Scalping"),
+        group=os.environ.get("BILLIONAIRES_GROUP", "Scalping"),
     )
     print(result.success, result.success_count, result.failed_count)
 

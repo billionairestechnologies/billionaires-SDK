@@ -1,4 +1,4 @@
-from proalgotrade import BridgeClient
+from billionaires_sdk import BridgeClient
 
 
 bridge = BridgeClient.from_env()

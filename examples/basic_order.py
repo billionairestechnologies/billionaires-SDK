@@ -1,11 +1,11 @@
 import os
 
-from proalgotrade import BridgeAPIError, BridgeClient, BridgeConfigError
+from billionaires_sdk import BridgeAPIError, BridgeClient, BridgeConfigError
 
 
 bridge = BridgeClient(
-    base_url=os.environ["PROALGOTRADE_BASE_URL"],
-    api_key=os.environ["PROALGOTRADE_API_KEY"],
+    base_url=os.environ["BILLIONAIRES_BASE_URL"],
+    api_key=os.environ["BILLIONAIRES_API_KEY"],
 )
 
 try:

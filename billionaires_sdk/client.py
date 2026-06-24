@@ -140,7 +140,7 @@ class BridgeStatus:
 
 
 class BridgeClient:
-    """Production-oriented client for the ProAlgoTrade Bridge API.
+    """Production-oriented client for the Billionaires Bridge API.
 
     The SDK sends the same Signal API Contract accepted by TradingView and
     direct HTTP clients, while adding Python-side validation, idempotency keys,
@@ -167,14 +167,14 @@ class BridgeClient:
         self.retry_backoff = self._positive_float(retry_backoff, "retry_backoff")
         self.mode_guard = self._clean_mode_guard(mode_guard)
         self.check_status_on_order = bool(check_status_on_order)
-        self.user_agent = user_agent or f"proalgotrade-bridge-python/{SDK_VERSION}"
+        self.user_agent = user_agent or f"billionaires-sdk-python/{SDK_VERSION}"
 
     @classmethod
     def from_env(
         cls,
         *,
-        base_url_var: str = "PROALGOTRADE_BASE_URL",
-        api_key_var: str = "PROALGOTRADE_API_KEY",
+        base_url_var: str = "BILLIONAIRES_BASE_URL",
+        api_key_var: str = "BILLIONAIRES_API_KEY",
         timeout: float = 10.0,
         max_retries: int = 2,
         retry_backoff: float = 0.5,
