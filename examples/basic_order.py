@@ -16,6 +16,7 @@ try:
         quantity=50,
         product="MIS",
         pricetype="MARKET",
+        deployment_id="paste-active-deployment-id",
         group="Scalping",
     )
     print(result.success, result.success_count, result.failed_count)

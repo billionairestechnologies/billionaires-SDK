@@ -247,6 +247,7 @@ class BridgeClient:
         group_id: Optional[str] = None,
         group_ids: Optional[Iterable[str]] = None,
         account_ids: Optional[Iterable[str]] = None,
+        deployment_id: Optional[str] = None,
         idempotency_key: Optional[str] = None,
         source: str = "python_sdk",
         require_paper: bool = False,
@@ -270,6 +271,7 @@ class BridgeClient:
             group_id=group_id,
             group_ids=group_ids,
             account_ids=account_ids,
+            deployment_id=deployment_id,
             idempotency_key=idempotency_key,
             source=source,
             extra=extra,
@@ -369,6 +371,7 @@ class BridgeClient:
         group_id: Optional[str],
         group_ids: Optional[Iterable[str]],
         account_ids: Optional[Iterable[str]],
+        deployment_id: Optional[str],
         idempotency_key: Optional[str],
         source: str,
         extra: Mapping[str, Any],
@@ -414,8 +417,13 @@ class BridgeClient:
             payload["groupIds"] = self._clean_list(group_ids, "group_ids")
         if account_ids:
             payload["accountIds"] = self._clean_list(account_ids, "account_ids")
+        deployment_value = deployment_id or extra.get("deploymentId") or extra.get("deployment_id")
+        if deployment_value:
+            payload["deploymentId"] = str(deployment_value).strip()
 
         for key, value in extra.items():
+            if key in {"deploymentId", "deployment_id"}:
+                continue
             if value is not None:
                 payload[key] = value
 

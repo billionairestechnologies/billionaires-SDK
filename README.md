@@ -55,6 +55,7 @@ result = bridge.buy(
     quantity=50,
     product="MIS",
     pricetype="MARKET",
+    deployment_id="paste-active-deployment-id",
     group="Scalping",
 )
 
@@ -97,6 +98,7 @@ bridge.buy(
     symbol="RELIANCE",
     exchange="NSE",
     quantity=1,
+    deployment_id="paste-active-deployment-id",
     idempotency_key="strategy-20260624-0001",
 )
 ```

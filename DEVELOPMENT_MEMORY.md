@@ -29,6 +29,7 @@ It provides:
 - Paper/Live preflight checks
 - typed `BridgeResponse` and `BridgeStatus`
 - BUY, SELL, generic order, basket, and async helpers
+- `deployment_id` support for Algo deployments; serialized to API field `deploymentId`
 - local validation for quantity, side, order type, price, trigger price, base URL, and retry settings
 
 ## Client Setup
@@ -46,6 +47,13 @@ from billionaires_sdk import BridgeClient
 
 bridge = BridgeClient.from_env()
 bridge.ensure_ready(require_paper=True)
+
+bridge.buy(
+    symbol="NIFTY24JUN23500CE",
+    exchange="NFO",
+    quantity=50,
+    deployment_id="active-deployment-id",
+)
 ```
 
 Env vars:

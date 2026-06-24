@@ -43,6 +43,14 @@ BILLIONAIRES_BASE_URL
 BILLIONAIRES_API_KEY
 ```
 
+Algo deployment targeting:
+
+```python
+bridge.buy(..., deployment_id="active-deployment-id")
+```
+
+The SDK serializes `deployment_id` as Bridge API field `deploymentId`.
+
 ## Safety
 
 - Do not reintroduce legacy package/import/env names.

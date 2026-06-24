@@ -37,6 +37,7 @@ On Windows, `py -3` is also acceptable.
 - Billionaires Terminal supports this SDK.
 - AlgoAdmin white-label deployments also support this SDK.
 - Do not brand this SDK as any old platform name.
+- Algo deployments use `deployment_id` in Python; the SDK sends it to the Bridge API as `deploymentId`.
 
 ## Required Checks
 

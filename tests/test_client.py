@@ -22,6 +22,7 @@ class BridgeClientTest(unittest.TestCase):
             group_id=None,
             group_ids=None,
             account_ids=None,
+            deployment_id="deploy-1",
             idempotency_key="test-key",
             source="python_sdk",
             extra={},
@@ -32,7 +33,32 @@ class BridgeClientTest(unittest.TestCase):
         self.assertEqual(payload["exchange"], "NSE")
         self.assertEqual(payload["quantity"], 1)
         self.assertEqual(payload["group"], "Equity")
+        self.assertEqual(payload["deploymentId"], "deploy-1")
         self.assertEqual(payload["idempotencyKey"], "test-key")
+
+    def test_builds_deployment_id_from_snake_case_extra(self):
+        payload = self.client._build_payload(
+            action="BUY",
+            symbol="RELIANCE",
+            exchange="NSE",
+            quantity=1,
+            product="MIS",
+            pricetype="MARKET",
+            price=None,
+            trigger_price=None,
+            group=None,
+            groups=None,
+            group_id=None,
+            group_ids=None,
+            account_ids=None,
+            deployment_id=None,
+            idempotency_key="test-key",
+            source="python_sdk",
+            extra={"deployment_id": "deploy-2"},
+        )
+
+        self.assertEqual(payload["deploymentId"], "deploy-2")
+        self.assertNotIn("deployment_id", payload)
 
     def test_rejects_invalid_action(self):
         with self.assertRaises(BridgeConfigError):
@@ -50,6 +76,7 @@ class BridgeClientTest(unittest.TestCase):
                 group_id=None,
                 group_ids=None,
                 account_ids=None,
+                deployment_id=None,
                 idempotency_key=None,
                 source="python_sdk",
                 extra={},
@@ -71,6 +98,7 @@ class BridgeClientTest(unittest.TestCase):
                 group_id=None,
                 group_ids=None,
                 account_ids=None,
+                deployment_id=None,
                 idempotency_key=None,
                 source="python_sdk",
                 extra={},
